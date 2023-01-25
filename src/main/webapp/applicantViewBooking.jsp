@@ -38,8 +38,9 @@
 
 <sql:query dataSource="${ic}" var="oc">
   <c:set var="clsid" value="<%=applicantid%>"/>
-  SELECT b.bookingid, b.bookingdate, b.bookingstatus, b.eventdate, b.eventtime, b.eventdescription, a.applicantname, b.eventspace
+  SELECT b.bookingid, b.bookingdate, b.bookingstatus, b.eventdate, b.eventtime, b.eventdescription, a.applicantname, s.spacename
   FROM booking b
+  Join space s ON b.spaceid = s.spaceid
   JOIN applicant a ON b.applicantid = a.applicantid
   WHERE a.applicantid = ?
   <sql:param value="${clsid}" />
@@ -122,7 +123,7 @@
               <td>${result.eventdate}</td>
               <td>${result.eventtime}</td>
               <td>${result.eventdescription}</td>
-              <td>${result.eventspace}</td>
+              <td>${result.spacename}</td>
               <td>${result.bookingstatus}</td>
               <td>
                 <input type="hidden" name="action" value="applicantcancelbooking">

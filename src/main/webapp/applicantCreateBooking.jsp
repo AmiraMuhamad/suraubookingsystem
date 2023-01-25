@@ -46,11 +46,6 @@
   FROM space
   WHERE spacestatus LIKE '%Boleh Digunakan%'
 </sql:query>
-<sql:query dataSource="${ic}" var="rc">
-  SELECT *
-  FROM room
-  WHERE roomstatus LIKE '%Boleh Digunakan%'
-</sql:query>
 
 
 <div class="sidebar">
@@ -134,9 +129,6 @@
                      	<option disabled selected>Pilih Ruang</option>
                         <c:forEach items="${oc.rows}" var="space">
                         <option value="<c:out value="${space.spacename}"/>"><c:out value="${space.spacename}" /></option>
-                        </c:forEach>
-                        <c:forEach items="${rc.rows}" var="room">
-                        <option value="<c:out value="${room.roomname}"/>"><c:out value="${room.roomname}" /></option>
                         </c:forEach>
                     </select>
             </div>           

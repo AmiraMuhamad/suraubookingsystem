@@ -103,7 +103,7 @@ public class BookingServlet extends HttpServlet {
             Date eventdate = Date.valueOf(request.getParameter("eventdate"));
             String eventtime = request.getParameter("eventtime");  
             String eventdescription = request.getParameter("eventdescription");
-            String eventspace = request.getParameter("eventspace");
+            String spacename = request.getParameter("spacename");
             
             /*
             Space space = new Space();
@@ -118,7 +118,7 @@ public class BookingServlet extends HttpServlet {
             booking.setEventdate(eventdate);
             booking.setEventtime(eventtime);
             booking.setEventdescription(eventdescription);
-            booking.setEventspace(eventspace);
+            booking.setSpacename(spacename);
 
             //bd.applicantcreatebooking(booking, space, room, applicant);
             bd.applicantcreatebooking(booking, applicant);
