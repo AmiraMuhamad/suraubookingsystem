@@ -138,11 +138,11 @@
                       </div>
                         <div class="input-field input-box">
                             <label class="details" >Kuantiti Meja</label>
-                            <input type="text" name="tablequantity" value="${room.tablequantity}" pattern="[0-9]+" title="Kuantiti meja hanya nombor sahaja" required>
+                            <input type="text" name="tablequantity" value="${space.tablequantity}" pattern="[0-9]+" title="Kuantiti meja hanya nombor sahaja" required>
                         </div>
                         <div class="input-field input-box">
                             <label class="details">Kuantiti Kerusi</label>
-                            <input type="text" name="chairquantity" value="${room.chairquantity}" pattern="[0-9]+" title="Kuantiti kerusi hanya nombor sahaja" required>
+                            <input type="text" name="chairquantity" value="${space.chairquantity}" pattern="[0-9]+" title="Kuantiti kerusi hanya nombor sahaja" required>
                         </div>
                           <input type="hidden" name="action" value="updateSpace">
                       <a href="staffViewSpace.jsp"><button class="update">KEMASKINI</button></a>
