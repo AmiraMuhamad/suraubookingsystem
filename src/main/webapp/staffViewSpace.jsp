@@ -105,9 +105,9 @@
                         <span>Sistem Bunyi:</span>
                         <span>${space.soundsystem}</span>
                         <span>Kuantiti Meja:</span>
-                        <span>${room.tablequantity}</span>
+                        <span>${space.tablequantity}</span>
                         <span>Kuantity Kerusi:</span>
-                        <span>${room.chairquantity}</span>
+                        <span>${space.chairquantity}</span>
                       </div>
                       <input type="hidden" name="action" value="deleteSpace">
                       <button class="update" onclick="form.action='staffUpdateSpace.jsp'">KEMASKINI</button>
