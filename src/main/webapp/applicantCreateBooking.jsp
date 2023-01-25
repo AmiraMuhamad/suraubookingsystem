@@ -18,13 +18,7 @@
     if(session.getAttribute("applicantid")==null)
         response.sendRedirect("index.jsp");
 
-    int applicantid;
-    if(request.getParameter("applicantid")==null){
-        applicantid=  Integer.parseInt(session.getAttribute("applicantid").toString());
-    }else{
-        applicantid = Integer.parseInt(request.getParameter("applicantid"));
-        session.setAttribute("applicantid",applicantid);
-    }
+
 %>
 <sql:setDataSource
         var="ic"
@@ -33,20 +27,27 @@
         user="postgres"
         password="X1rUNPFnBLwzM2s9w4WW"/>
 
-<sql:query dataSource="${ic}" var="aid">
-    <c:set var="clsid" value="<%=applicantid%>"/>
-    SELECT applicantid
-    FROM applicant
-    WHERE applicantid=?
-    <sql:param value="${clsid}" />
-</sql:query>
-
 <sql:query dataSource="${ic}" var="oc">
-  SELECT *
-  FROM space
-  WHERE spacestatus LIKE '%Boleh Digunakan%'
+    SELECT spaceid,spacename
+    from space
+    WHERE spacestatus LIKE '%Boleh Digunakan%'
 </sql:query>
+<sql:query dataSource="${ic}" var="aid">
+    <%
+        int japplicantid = 0;
 
+        if(request.getParameter("applicantid")==null){
+            japplicantid = (Integer) session.getAttribute("applicantid");
+        }
+        else{
+            japplicantid = Integer.parseInt(request.getParameter("applicantid"));
+            session.setAttribute("applicantid", japplicantid);
+        }
+    %>
+    <c:set var="japplicantid" value="<%=japplicantid%>"/>
+    SELECT applicantid FROM applicant WHERE applicantid=?
+    <sql:param value="${japplicantid}" />
+</sql:query>
 
 <div class="sidebar">
   <div class="logo-details">
