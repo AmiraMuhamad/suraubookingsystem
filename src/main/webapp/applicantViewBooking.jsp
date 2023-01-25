@@ -20,14 +20,6 @@
   if(session.getAttribute("applicantid")==null)
     response.sendRedirect("index.jsp");
 
-  int applicantid;
-  if(request.getParameter("applicantid")==null){
-    applicantid=  Integer.parseInt(session.getAttribute("applicantid").toString());
-  }else{
-    applicantid = Integer.parseInt(request.getParameter("applicantid"));
-    session.setAttribute("applicantid",applicantid);
-  }
-
 %>
   <sql:setDataSource
         var="ic"
@@ -37,12 +29,23 @@
         password="X1rUNPFnBLwzM2s9w4WW"/>
 
 <sql:query dataSource="${ic}" var="oc">
-  <c:set var="applicantid" value="<%=applicantid%>"/>
+  <%
+      int japplicantid = 0;
+
+      if(request.getParameter("applicantid")==null){
+        japplicantid = (Integer) session.getAttribute("applicantid");
+      }
+      else{
+        japplicantid = Integer.parseInt(request.getParameter("applicantid"));
+        session.setAttribute("applicantid", japplicantid);
+      }
+      %>
+  <c:set var="japplicantid" value="<%=japplicantid%>"/>
   SELECT b.bookingid, TO_CHAR(bookingdate, 'DD-MM-YYYY')bookingdate, b.bookingstatus, TO_CHAR(eventdate, 'DD-MM-YYYY')eventdate, b.eventtime, b.eventdescription, s.spacename
   FROM booking b
   Join space s ON b.spaceid = s.spaceid
   WHERE applicantid = ?
-  <sql:param value="${applicantid}" />
+  <sql:param value="${japplicantid}" />
 </sql:query>
 
 <div class="sidebar">
