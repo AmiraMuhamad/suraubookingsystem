@@ -44,14 +44,10 @@
         </li>
 
         <li>
-          <a class="main-menu" href="#">
-            <i class='bx bx-box' ></i>
-            <span class="links_name">RUANG</span>
+          <a class="main-menu" href="staffViewSpace.jsp">
+            <i class='bx bx-box'></i>
+            <span class="links_name min">RUANG</span>
           </a>
-          <ul class="sub-menu">
-            <li><a href="staffViewSpace.jsp">DEWAN</a></li>
-            <li><a href="staffViewRoom.jsp">BILIK</a></li>
-          </ul>
         </li>
 
         <li>
@@ -92,8 +88,8 @@
     </nav>
   <div class="home-content">
     <div class="container">
-    <a href="staffCreateSpace.jsp"><button class="add">TAMBAH DEWAN</button></a>
-      <header class="main_title" style="font-size: xx-large">SENARAI DEWAN</header>
+    <a href="staffCreateSpace.jsp"><button class="add">TAMBAH RUANG</button></a>
+      <header class="main_title" style="font-size: xx-large">SENARAI RUANG</header>
       	  <c:forEach var="space" items="${oc.rows}">
       	  <form action="" method="post">
       	  <input type="hidden" name="spaceid" value="${space.spaceid}">
@@ -107,7 +103,11 @@
                         <span>Status:</span>
                         <span>${space.spacestatus}</span>
                         <span>Sistem Bunyi:</span>
-                        <span>${space.soundsystem}</span> 
+                        <span>${space.soundsystem}</span>
+                        <span>Kuantiti Meja:</span>
+                        <span>${room.tablequantity}</span>
+                        <span>Kuantity Kerusi:</span>
+                        <span>${room.chairquantity}</span>
                       </div>
                       <input type="hidden" name="action" value="deleteSpace">
                       <button class="update" onclick="form.action='staffUpdateSpace.jsp'">KEMASKINI</button>

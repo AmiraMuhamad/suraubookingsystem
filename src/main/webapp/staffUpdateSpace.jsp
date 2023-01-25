@@ -54,16 +54,12 @@
           </a>
         </li>
 
-        <li>
-          <a class="main-menu" href="#">
-            <i class='bx bx-box' ></i>
-            <span class="links_name" >RUANG</span>
-          </a>
-          <ul class="sub-menu">
-              <li><a href="staffViewSpace.jsp">DEWAN</a></li>
-              <li><a href="staffViewRoom.jsp">BILIK</a></li>
-          </ul>
-        </li>
+          <li>
+              <a class="main-menu" href="staffViewSpace.jsp">
+                  <i class='bx bx-box'></i>
+                  <span class="links_name min">RUANG</span>
+              </a>
+          </li>
 
         <li>
           <a class="main-menu" href="#">
@@ -140,6 +136,14 @@
                         <label class="details">Sistem Bunyi</label>
                         <input type="text" name="soundsystem" value="${space.soundsystem}" required>
                       </div>
+                        <div class="input-field input-box">
+                            <label class="details" >Kuantiti Meja</label>
+                            <input type="text" name="tablequantity" value="${room.tablequantity}" pattern="[0-9]+" title="Kuantiti meja hanya nombor sahaja" required>
+                        </div>
+                        <div class="input-field input-box">
+                            <label class="details">Kuantiti Kerusi</label>
+                            <input type="text" name="chairquantity" value="${room.chairquantity}" pattern="[0-9]+" title="Kuantiti kerusi hanya nombor sahaja" required>
+                        </div>
                           <input type="hidden" name="action" value="updateSpace">
                       <a href="staffViewSpace.jsp"><button class="update">KEMASKINI</button></a>
                       <a href="staffViewSpace.jsp"><button class="delete">BATAL</button></a>                   
