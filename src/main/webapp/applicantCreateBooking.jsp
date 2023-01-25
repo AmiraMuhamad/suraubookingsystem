@@ -126,7 +126,7 @@
             </div>
             <div class="input-box">
                 <span class="details">Ruang Tempahan</span>
-                    <select class="form-control" id="spaceid" name="spaceid" required>
+                    <select class="form-control" name="eventspace" required>
                      	<option disabled selected>Pilih Ruang</option>
                         <c:forEach items="${oc.rows}" var="space">
                         <option value="<c:out value="${space.spaceid}"/>"><c:out value="${space.spacename}" /></option>
