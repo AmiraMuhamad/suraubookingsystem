@@ -37,13 +37,12 @@
         password="X1rUNPFnBLwzM2s9w4WW"/>
 
 <sql:query dataSource="${ic}" var="oc">
-  <c:set var="clsid" value="<%=applicantid%>"/>
-  SELECT b.bookingid, b.bookingdate, b.bookingstatus, b.eventdate, b.eventtime, b.eventdescription, a.applicantname, s.spacename
+  <c:set var="applicantid" value="<%=applicantid%>"/>
+  SELECT b.bookingid, b.bookingdate, b.bookingstatus, b.eventdate, b.eventtime, b.eventdescription, s.spacename
   FROM booking b
   Join space s ON b.spaceid = s.spaceid
-  JOIN applicant a ON b.applicantid = a.applicantid
-  WHERE a.applicantid = ?
-  <sql:param value="${clsid}" />
+  WHERE applicantid = ?
+  <sql:param value="${applicantid}" />
 </sql:query>
 
 <div class="sidebar">
