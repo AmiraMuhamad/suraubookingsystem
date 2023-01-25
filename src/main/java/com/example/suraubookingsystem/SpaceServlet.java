@@ -111,7 +111,7 @@ public class SpaceServlet extends HttpServlet {
 
     /*######################################################( DELETE )#############################################################*/
 
-    private void deleteRoom(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+    private void deleteSpace(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         int spaceid = Integer.parseInt(request.getParameter("spaceid"));
         sp.deleteSpace(spaceid);
         response.sendRedirect("staffViewSpace.jsp");
