@@ -95,15 +95,12 @@ public class BookingServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         try{
-        /*
-            int spaceid = Integer.parseInt(request.getParameter("spaceid"));
-            int roomid = Integer.parseInt(request.getParameter("roomid"));;*/
             int applicantid = Integer.parseInt(request.getParameter("applicantid"));
             String bookingstatus = request.getParameter("bookingstatus");
             Date eventdate = Date.valueOf(request.getParameter("eventdate"));
             String eventtime = request.getParameter("eventtime");  
             String eventdescription = request.getParameter("eventdescription");
-            String spacename = request.getParameter("spacename");
+            int spaceid = Integer.parseInt(request.getParameter("spaceid"));
             
             /*
             Space space = new Space();
@@ -118,7 +115,7 @@ public class BookingServlet extends HttpServlet {
             booking.setEventdate(eventdate);
             booking.setEventtime(eventtime);
             booking.setEventdescription(eventdescription);
-            booking.setSpacename(spacename);
+            booking.setSpaceid(spaceid);
 
             //bd.applicantcreatebooking(booking, space, room, applicant);
             bd.applicantcreatebooking(booking, applicant);
