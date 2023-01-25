@@ -38,7 +38,7 @@
 
 <sql:query dataSource="${ic}" var="oc">
   <c:set var="applicantid" value="<%=applicantid%>"/>
-  SELECT b.bookingid, b.bookingdate, b.bookingstatus, b.eventdate, b.eventtime, b.eventdescription, s.spacename
+  SELECT b.bookingid, TO_CHAR(bookingdate, 'DD-MM-YYYY')bookingdate, b.bookingstatus, TO_CHAR(eventdate, 'DD-MM-YYYY')eventdate, b.eventtime, b.eventdescription, s.spacename
   FROM booking b
   Join space s ON b.spaceid = s.spaceid
   WHERE applicantid = ?
